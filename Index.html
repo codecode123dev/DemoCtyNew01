@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"> -->
+    <!-- Bootstrap Font Icon CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <!-- <link rel="stylesheet" href="css/elegant-icons.css" type="text/css"> -->
+    <!-- <link rel="stylesheet" href="css/nice-select.css" type="text/css"> -->
+    <!-- <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css"> -->
+    <!-- <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css"> -->
+    <!-- <link rel="stylesheet" href="css/slicknav.min.css" type="text/css"> -->
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <style>
+        
+        body {
+            background-color: #EDEFF2;
+        }
+
+        .menu-item {
+            position: relative;
+        }
+
+        /* .menu-item i : cách viết này gọi lầ scope */
+        .arrow {
+            position: absolute;
+            left: 160px;
+        }
+
+        .icons {
+            margin-right: 10px;
+
+        }
+
+        .hero_compare {
+            position: absolute;
+            right: 180px;
+        }
+
+        .hero_price_drop {
+            position: absolute;
+            right: 50px;
+        }
+
+        .details-sort-by {
+            position: absolute;
+            right: 277px;
+        }
+
+        .details-popularity {
+            position: absolute;
+            right: 192px;
+        }
+
+        .details-new {
+            position: absolute;
+            right: 220px;
+            /* text-shadow: 0 0 3px #154677 ; */
+            color: blue;
+            /* text-transform: uppercase; */
+        }
+
+        .details-price {
+            position: absolute;
+            right: 166px;
+        }
+
+        .details-rating {
+            position: absolute;
+            right: 117px;
+        }
+
+        .details-icon1 {
+            position: absolute;
+            right: 40px;
+            color: blue;
+        }
+
+        .details-icon2 {
+            position: absolute;
+            right: 0px;
+        }
+
+        .item {
+            /* position: absolute;
+            top: 169px;
+            left: 51px; */
+        }
+
+        .container-checkbox {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            font-size: 22px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            margin-top: 16px;
+        }
+
+        /* Hide the browser's default checkbox */
+        .container-checkbox input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+
+        }
+
+        /* Create a custom checkbox */
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 22px;
+            width: 25px;
+
+            background-color: #ccc;
+            border-radius: 5px;
+        }
+
+        /* On mouse-over, add a grey background color */
+        .container-checkbox:hover input~.checkmark {
+            background-color: #ccc;
+        }
+
+        /* When the checkbox is checked, add a blue background */
+        .container-checkbox input:checked~.checkmark {
+            background-color: #FF6633;
+
+        }
+
+        /* Create the checkmark/indicator (hidden when not checked) */
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        /* Show the checkmark when checked */
+        .container-checkbox input:checked~.checkmark:after {
+            display: block;
+        }
+
+        /* Style the checkmark/indicator */
+        .container-checkbox .checkmark:after {
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        .icons1::before {
+            content: "\f282";
+            margin-left: 128px;
+            font-size: 12px;
+        }
+
+        .icons2::before {
+            content: "\f282";
+            margin-left: 116px;
+            font-size: 12px;
+        }
+
+        .icons3::before {
+            content: "\f282";
+            margin-left: 140px;
+            font-size: 12px;
+        }
+
+        .range-slider {
+            height: 5px;
+            width: 200px;
+            position: relative;
+            background-color: #e1e9f6;
+            border-radius: 2px;
+        }
+
+        .range-selected {
+            height: 100%;
+            left: 30%;
+            right: 30%;
+            position: absolute;
+            border-radius: 5px;
+            background-color: #1b53c0;
+        }
+
+        .range-input {
+            position: relative;
+        }
+
+        .range-input input {
+            position: absolute;
+            width: 200px;
+            height: 5px;
+            top: -7px;
+            background: none;
+            pointer-events: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        .range-input input::-webkit-slider-thumb {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            border: 3px solid #1b53c0;
+            background-color: #1b53c0;
+            pointer-events: auto;
+            -webkit-appearance: none;
+        }
+
+        .range-input input::-moz-range-thumb {
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            border: 3px solid #1b53c0;
+            background-color: #fff;
+            pointer-events: auto;
+            -moz-appearance: none;
+        }
+
+        .range-price {
+            margin: 30px 0 0 20px;
+            width: 14%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .range-price label {
+            margin-right: 5px;
+        }
+
+        .range-price input {
+            width: 74px;
+            padding: 5px;
+            border: groove 1px;
+        }
+
+        .range-price input:first-of-type {
+            margin-right: -48px;
+            margin-left: 128px;
+        }
+
+        .dot {
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .information1{
+            position: absolute;
+            left: 30px;
+            top:280px;
+        }
+        .information2{
+            position: absolute;
+            left: 270px;
+            top:280px;
+        }
+        .information3{
+            position: absolute;
+            left: 520px;
+            top:280px;
+        }
+        .information4{
+            position: absolute;
+            left: 30px;
+            top:620px;
+        }
+        .information5{
+            position: absolute;
+            left: 270px;
+            top:620px;
+        }
+        .information6{
+            position: absolute;
+            left: 520px;
+            top:620px;
+        }
+        .information7{
+            position: absolute;
+            left: 30px;
+            top:1000px;
+        }
+        .information8{
+            position: absolute;
+            left: 270px;
+            top:1000px;
+        }
+        .information9{
+            position: absolute;
+            left: 520px;
+            top:1000px;
+        }
+
+
+
+
+        /* .flex-container {
+            display: flex;
+            flex-direction: row;
+            background-color: DodgerBlue;
+        } */
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <!-- <div class="col-lg-3"> -->
+                <div class="header__logo">
+                    <div class="hero__categories__all">
+                        <i class="fa fa-bars"></i>
+                        <span style="font-family:'normal' ; padding-left:5px;">Constructor</span>
+                    </div>
+                </div>
+                <!-- </div> -->
+                <div class="col-lg-8">
+                    <nav class="header__menu">
+                        <ul>
+                            <li  class="active" style="font-size: 14px;  font-family:'Arial, Helvetica, sans-serif' ;font-style: normal;;margin-left:60px">
+                                Today's Deals<i class="bi bi-chevron-down" style="margin-left: 9px;" ></i>
+                            </li>
+                            <li style="font-size: 14px;  font-family:'Arial, Helvetica, sans-serif' ;font-style: normal;;margin-left:50px">
+                                Best Seller<i class="bi bi-chevron-down" style="margin-left: 9px;"></i>
+                            </li>
+                            <li style="font-size: 14px;  font-family:'Arial, Helvetica, sans-serif' ;font-style: normal;;margin-left:50px">
+                                Customer Service
+                            </li>
+                            <li style="font-size: 14px;  font-family:'Arial, Helvetica, sans-serif' ;font-style: normal;;margin-left:50px">
+                                New Releases
+                            </li>
+                            <!-- <li class="active"><a style="margin-left: 30px; font-family:'normal'; font-style: normal;"
+                                    href="./index.html">Today's Deals <i class="bi bi-chevron-down"></i></a></li>
+                            <li><a style="font-family:'Arial, Helvetica, sans-serif';font-style: normal;" href="#">Best
+                                    Seller <i class="bi bi-chevron-down"></i></a></li>
+                            <li><a style="font-family:'Arial, Helvetica, sans-serif ';font-style: normal;" href="#">Customer
+                                    Service</a></li>
+                            <li style="font-family:'Arial, Helvetica, sans-serif';"><a style="font-family:'Arial, Helvetica, sans-serif';font-style: normal;" href="#">New
+                                    Releases</a></li> -->
+                            <!-- <li style="font-size: 14px;  font-family:'Arial, Helvetica, sans-serif' ;font-style: normal;;margin-left:100px">
+                                <i style="margin-right:3px ;" class="fa fa-search"></i> Search Goods...
+                            </li> -->
+                            <!-- <li style="font-size: 14px;  font-family:'Arial, Helvetica, sans-serif' ;font-style: normal;;margin-left:100px">
+                                <i style="margin-right:3px ;" class="fa fa-search"></i> Search Goods...
+                            </li> -->
+                            <!-- <li style="font-size: 14px;  font-family:'Arial, Helvetica, sans-serif' ;font-style: normal;;margin-left:100px">
+                                <i style="margin-right:3px ;" class="fa fa-search"></i> Search Goods...
+                            </li> -->
+                            <li style="font-size: 14px;  font-family:'Arial, Helvetica, sans-serif' ;font-style: normal;;margin-left:100px">
+                                <i style="margin-right:3px ;" class="fa fa-search"></i> Search Goods...
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-2">
+                    <div class="header__cart">
+                        <i style="margin-right: 7px;" class="bi bi-person-fill"></i>
+                        <div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"
+                            class="header__cart__price">Account </div>
+                        <i style="margin-left: 15px;" class="bi bi-cart3"></i>
+                        <div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-left: 5px;"
+                            class="header__cart__price">Bag </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </header>
+    <!-- header -->
+
+    <!-- Hero Section Begin -->
+    <!-- <section class="hero" style="margin-top: 30px;"> -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 " style="padding-left:0px ;">
+                <div class="hero__categories">
+                    <ul>
+                        <li class="menu-item"><a href="#"><i class="bi bi-speaker icons"></i> Speakers <i
+                                    class="arrow bi bi-chevron-right"></i> </a> </li>
+                        <li class="menu-item"><a href="#"><i class="bi bi-mouse2-fill icons"></i>Equipment <i
+                                    class="arrow bi bi-chevron-right"></i> </a> </li>
+                        <li class="menu-item"><a href="#"><i class="bi bi-controller icons"></i>Controls <i
+                                    class="arrow bi bi-chevron-right"></i> </a> </li>
+                        <li class="menu-item"><a href="#"><i class="bi bi-cpu icons"></i> Accessories <i
+                                    class="arrow bi bi-chevron-right"></i> </a> </li>
+                        <li class="menu-item"><a href="#"><i class="bi bi-music-note icons"></i> Audio <i
+                                    class="arrow bi bi-chevron-right"></i> </a> </li>
+                        <li class="menu-item"><a href="#"><i class="bi bi-speaker icons"></i> Appliances <i
+                                    class="arrow bi bi-chevron-right"></i> </a> </li>
+                        <li class="menu-item"><a href="#"><i class="bi bi-tv icons"></i> Television Set <i
+                                    class="arrow bi bi-chevron-right"></i> </a> </li>
+                        <li class="menu-item"><a href="#"><i class="bi bi-watch icons"></i> Digital Watch <i
+                                    class="arrow bi bi-chevron-right"></i> </a> </li>
+                        <li class="menu-item"><a href="#"><i class="bi bi-speaker icons"></i> Video Games <i
+                                    class="arrow bi bi-chevron-right"></i> </a> </li>
+                        <li class="menu-item"><a href="#"><i class="bi bi-tablet icons"></i> Tablets <i
+                                    class="arrow bi bi-chevron-right"></i> </a> </li>
+                        <li class="menu-item"><a href="#"><i class="bi bi-speaker icons"></i> Accessories <i
+                                    class="arrow bi bi-chevron-right"></i> </a> </li>
+                        <li class="menu-item"><a href="#"><i class="bi bi-display icons"></i> Computers <i
+                                    class="arrow bi bi-chevron-right"></i> </a> </li>
+                        <li class="menu-item"><a href="#"><i class="bi bi-laptop icons"></i> Laptops <i
+                                    class="arrow bi bi-chevron-right"></i> </a> </li>
+                        <li class="menu-item"><a href="#"><i class="bi bi-phone icons"></i> Smartphones <i
+                                    class="arrow bi bi-chevron-right"></i> </a> </li>
+
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+
+                    <div class="hero__categories" style="margin-right:50px;">
+
+                        <div style=" width: 209px;  height: 350px; margin-right: 38px; margin-left: -17px; border: solid 1px rgb(193, 193, 193); border-radius: 10px;
+                        background-color: #EDEFF2;"> 
+                        <p style="text-align: center; margin-top: 40px;">The New Smart <br> Watches</p>
+                        <img style="max-width: 300px; margin-left: -48px;" src="../DemoTemplateOne/img/watch_new.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="hero_compare">
+                    <p style="margin-right:780px;"> Main </p>
+                </div>
+                <div class="hero_compare">
+                    <p style="margin-right:700px;"> <i style="margin-right: 10px;" class="bi bi-dot"></i> Tablets</p>
+                </div>
+                <div class="hero_compare">
+                    <p><i class="bi bi-arrow-down-right" style="margin-right:8px;"></i> Compare</p>
+                </div>
+                <div class="hero_price_drop">
+                    <p> <i class="bi bi-arrow-down-right" style="margin-right:8px;"></i> Price Drop</p>
+
+                </div>
+
+                <div style="margin-top:50px;">
+                    <div class="row">
+                        <div class="col-lg-8" ">
+                        </div>
+                      </div>
+                      <div class=" row ">
+                        <div class=" col-lg-5" style="font-size: 20px; margin-left: 20px;">Apple Pro Display XDR</div>
+                        <div class="col-lg-2 details-sort-by " style="font-size: 14px;">Sort By:</div>
+                        <div class="col-lg-2 details-popularity" style="font-size: 14px;">Popularity</div>
+                        <div class="col-lg-1 details-new" style="font-size: 14px;">New</div>
+                        <div class="col-lg-1 details-price " style="font-size: 14px;">Price</div>
+                        <div class="col-lg-1 details-rating " style="font-size: 14px;">Rating</div>
+                        <div class="col-lg-1 details-icon1"><i class="bi bi-border-style"></i></div>
+                        <div class="col-lg-1 details-icon2"><i class="bi bi-border-style"></i></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8" ">
+                        </div>
+                      </div>
+                      <div class=" row">
+                            <!-- Test -->
+                            <div class="row featured__filter">
+
+                                <div style="  margin: 35px 0 0 45px;height: 310px; background-color: #ffff;  border-radius: 10px; width: 200px;">
+                                    <div class="featured__item">
+                                        <div class="featured__item__pic set-bg ">
+                                            <a href="#">
+
+                                                <img src="img/computer.jpg" alt="computer" >
+                                            </a>
+
+                                        </div>
+                                        <div class="featured__item__text item information1 " style="padding-top: 20px;">
+                                            <h8>LAPTOPS</h8>
+                                            <h6 style="margin-top: 10px;"><a href="#">Apple Mac Book Pro</a></h6>
+                                            <h8>$950.00</h8>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-lg-1 col-md-4 col-sm-6 mix fresh-meat vegetables"
+                                    style="  margin: 35px 0 0 45px;height: 310px; background-color: #ffff; border-radius: 10px;"> -->
+                                <div class=" "
+                                    style="  margin: 35px 0 0 45px;height: 310px; background-color: #ffff;  border-radius: 10px; width: 200px;">
+                                    <div class="featured__item">
+                                        <div class="featured__item__pic set-bg">
+                                            <a href="#">
+                                                <img src="img/iphone14.jpg" alt="computer">
+                                            </a>
+
+                                        </div>
+                                        <div class="featured__item__text item information2 "style="padding-top: 20px;">
+                                            <h8>LAPTOPS</h8>
+                                            <h6 style="margin-top: 10px;"><a href="#">Apple Mac Book Pro</a></h6>
+                                            <h8>$950.00</h8>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=""
+                                    style="  margin: 35px 0 0 45px;height: 310px; background-color: #ffff; border-radius: 10px; width: 200px;">
+                                    <div class="featured__item">
+                                        <div class="featured__item__pic set-bg" >
+                                            <a href="#">
+
+                                                <img src="img/apple-iphone-12-256gb-blue.png" alt="computer">
+                                            </a>
+
+                                        </div>
+                                        <div class="featured__item__text item information3 " style="padding-top: 20px;">
+                                            <h8>LAPTOPS</h8>
+                                            <h6 style="margin-top: 10px;"><a href="#">Apple Mac Book Pro</a></h6>
+                                            <h8>$950.00</h8>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 col-sm-6 "
+                                    style="  margin: 35px 0 0 45px;height: 252px;width: 263px; background-color: #ffff; border-radius: 10px; ">
+                                    <div style="margin-top:13px">
+                                        <h8 style="font-size: 12px ; margin-top:5px">Brand</h8>
+                                        <i class="bi bi-chevron-down icons1"></i>
+
+                                    </div>
+                                    <hr style="width: 187px; margin-right: 90px; " align="right" />
+                                    <div style="margin-top: 0;">
+
+                                        <div class="row">
+                                            <label class="col-lg-1 container-checkbox "
+                                                style="font-size: 12px;margin-left: 38px; margin-right: 20px;">Apple
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="col-lg-1 container-checkbox "
+                                                style="font-size: 12px; margin-left: 40px;">Alcatel
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-lg-1 container-checkbox "
+                                                style="font-size: 12px;margin-left: 38px; margin-right: 20px;">BQ
+                                                <input type="checkbox" checked="checked">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="col-lg-1 container-checkbox "
+                                                style="font-size: 12px; margin-left: 40px;">Honor
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-lg-1 container-checkbox "
+                                                style="font-size: 12px;margin-left: 38px; margin-right: 20px;">Meizu
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="col-lg-1 container-checkbox "
+                                                style="font-size: 12px; margin-left: 40px;">OnePlus
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-lg-1 container-checkbox "
+                                                style="font-size: 12px;margin-left: 38px; margin-right: 20px;">Samsung
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="col-lg-1 container-checkbox "
+                                                style="font-size: 12px; margin-left: 40px;">ZTE
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <!-- end test -->
+
+                        </div>
+
+
+                        <div class="row">
+                            <!-- Test -->
+                            <div class="row featured__filter">
+
+                                <!-- <div class="col-lg-1 col-md-4 col-sm-6 mix fresh-meat vegetables"
+                                    style="  margin: 35px 0 0 45px;height: 310px; background-color: #ffff; border-radius: 10px;"> -->
+                                <div class=" "
+                                    style="  margin: 35px 0 0 45px;height: 310px; background-color: #ffff;border-radius: 10px; width: 200px;">
+                                    <div class="featured__item">
+                                        <div class="featured__item__pic set-bg">
+                                            <a href="#">
+
+                                                <img src="img/loa.jpg" alt="computer">
+                                            </a>
+
+                                        </div>
+                                        <div class="featured__item__text item information4">
+                                            <h8>LAPTOPS</h8>
+                                            <h6 style="margin-top: 10px;"><a href="#">Apple Mac Book Pro</a></h6>
+                                            <h8>$950.00</h8>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-lg-1 col-md-4 col-sm-6 mix fresh-meat vegetables"
+                                    style="  margin: 35px 0 0 45px;height: 310px; background-color: #ffff; border-radius: 10px;"> -->
+                                <div class=" "
+                                    style="  margin: 35px 0 0 45px;height: 310px; background-color: #ffff; border-radius: 10px; width: 200px;">
+                                    <div class="featured__item">
+                                        <div class="featured__item__pic set-bg">
+
+                                            <a href="#">
+
+                                                <img src="img/loa3.jpg" alt="computer">
+                                            </a>
+
+                                        </div>
+                                        <div class="featured__item__text item information5">
+                                            <h8>LAPTOPS</h8>
+                                            <h6 style="margin-top: 10px;"><a href="#">Apple Mac Book Pro</a></h6>
+                                            <h8>$950.00</h8>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=" "
+                                    style="  margin: 35px 0 0 45px;height: 310px; background-color: #ffff;  border-radius: 10px; width: 200px;">
+                                    <div class="featured__item">
+                                        <div class="featured__item__pic set-bg">
+                                            <a href="#">
+
+                                                <img src="img/ipad.jpg" alt="computer">
+                                            </a>
+
+                                        </div>
+                                        <div class="featured__item__text item information6">
+                                            <h8>LAPTOPS</h8>
+                                            <h6 style="margin-top: 10px;"><a href="#">Apple Mac Book Pro</a></h6>
+                                            <h8>$950.00</h8>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 col-sm-6 "
+                                    style="  margin: -45px 0 0 45px;height: 207px;width: 263px; background-color: #ffff; border-radius: 10px;">
+                                    <div style="margin-top:13px">
+                                        <h8 style="font-size: 12px ; margin-top:5px">Memory</h8>
+                                        <i class="bi bi-chevron-down icons2"></i>
+
+                                    </div>
+                                    <hr style="width: 187px; margin-right: 90px; " align="right" />
+                                    <div style="margin-top: 0;">
+
+                                        <div class="row">
+                                            <label class="col-lg-1 container-checkbox "
+                                                style="font-size: 12px;margin-left: 38px; margin-right: 20px;">8Gb
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="col-lg-1 container-checkbox "
+                                                style="font-size: 12px; margin-left: 40px;">16Gb
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-lg-1 container-checkbox "
+                                                style="font-size: 12px;margin-left: 38px; margin-right: 20px;">32Gb
+                                                <input type="checkbox" checked="checked">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="col-lg-1 container-checkbox "
+                                                style="font-size: 12px; margin-left: 40px;">64Gb
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+
+                                        </div>
+                                        <div class="row">
+                                            <label class="col-lg-1 container-checkbox "
+                                                style="font-size: 12px;margin-left: 38px; margin-right: 20px;">128Gb
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="col-lg-1 container-checkbox "
+                                                style="font-size: 12px; margin-left: 40px;">256Gb
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+
+                                        </div>
+
+                                    </div>
+
+                                    <!--Price-->
+                                    <div
+                                        style="background-color: #fff;  margin-top: 28px; height:176px; width: 214px; margin-left: -15px; border-radius: 9px;">
+
+                                        <div style="margin-top:13px">
+                                            <h8 style="font-size: 12px ; margin-top:5px ; margin-left: 13px;">Price</h8>
+                                            <i class="bi bi-chevron-down icons3"></i>
+
+                                        </div>
+                                        <hr style="width: 187px; margin-right: 10px; " align="right" />
+                                        <div style="margin-top: 0;">
+
+
+                                            <div class="range" style="margin-left:10px; margin-top: 30px;">
+                                                <div class="range-slider">
+                                                    <span class="range-selected"></span>
+                                                </div>
+                                                <div class="range-input">
+                                                    <input type="range" class="min" min="0" max="1000" value="300"
+                                                        step="1">
+                                                    <input type="range" class="max" min="0" max="1000" value="700"
+                                                        step="1">
+                                                </div>
+                                                <div class="range-price">
+                                                    <label for="min"></label>
+                                                    <input type="number" name="min" value="300"
+                                                        style="font-size: 12px;">
+                                                    <label for="max"></label>
+                                                    <input type="number" name="max" value="700"
+                                                        style=" font-size: 12px; margin-left: 80px">
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            <!-- end test -->
+
+                        </div>
+                        <!--Product Row 3 -->
+                        <div class="row">
+                            <!-- Test -->
+                            <div class="row featured__filter">
+
+                                <!-- <div class="col-lg-1 col-md-4 col-sm-6 mix fresh-meat vegetables"
+                                    style="  margin: 35px 0 0 45px;height: 310px; background-color: #ffff; border-radius: 10px;"> -->
+                                <div class=" "
+                                    style="  margin: 35px 0 0 45px;height: 310px; background-color: #ffff;border-radius: 10px; width: 200px;">
+                                    <div class="featured__item">
+                                        <div class="featured__item__pic set-bg">
+                                            <a href="#">
+
+                                                <img src="img/tv.jpeg" alt="computer">
+                                            </a>
+
+                                        </div>
+                                        <div class="featured__item__text item information7">
+                                            <h8>LAPTOPS</h8>
+                                            <h6 style="margin-top: 10px;"><a href="#">Apple Mac Book Pro</a></h6>
+                                            <h8>$950.00</h8>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-lg-1 col-md-4 col-sm-6 mix fresh-meat vegetables"
+                                    style="  margin: 35px 0 0 45px;height: 310px; background-color: #ffff; border-radius: 10px;"> -->
+                                <div class=" "
+                                    style="  margin: 35px 0 0 45px;height: 310px; background-color: #ffff; border-radius: 10px; width: 200px;">
+                                    <div class="featured__item">
+                                        <div class="featured__item__pic set-bg">
+                                            <a href="#">
+
+                                                <img src="img/apple-iphone-12-256gb-blue.png" alt="computer">
+                                            </a>
+
+                                        </div>
+                                        <div class="featured__item__text item information8">
+                                            <h8>LAPTOPS</h8>
+                                            <h6 style="margin-top: 10px;"><a href="#">Apple Mac Book Pro</a></h6>
+                                            <h8>$950.00</h8>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=" "
+                                    style="  margin: 35px 0 0 45px;height: 310px; background-color: #ffff;  border-radius: 10px; width: 200px;">
+                                    <div class="featured__item">
+                                        <div class="featured__item__pic set-bg">
+                                            <a href="#">
+
+                                                <img src="img/phonegold.jpg" alt="computer">
+                                            </a>
+
+                                        </div>
+                                        <div class="featured__item__text item information9">
+                                            <h8>LAPTOPS</h8>
+                                            <h6 style="margin-top: 10px;"><a href="#">Apple Mac Book Pro</a></h6>
+                                            <h8>$950.00</h8>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-4 col-sm-6 "
+                                    style="  margin: 33px 0 0 45px;height: 160px;width: 263px; background-color: #ffff; border-radius: 10px;">
+                                    <!--Price-->
+                                    <div
+                                        style="background-color: #fff;  margin-top: 28px; height:160px; width: 214px; margin-left: -15px; border-radius: 9px;">
+
+                                        <div style="margin-top:13px">
+                                            <h8 style="font-size: 12px ; margin-top:5px ; margin-left: 13px;">Colors
+                                            </h8>
+                                            <i class="bi bi-chevron-down icons3"></i>
+
+                                        </div>
+                                        <hr style="width: 187px; margin-right: 10px; " align="right" />
+                                        <!-- <div style="margin-top: 0;"> -->
+                                        <div class="row">
+                                            <div class="range col-lg-1" style="margin-left:42px; margin-top: 20px;">
+                                                <div>
+                                                    <span class="dot" style="background-color: purple;"></span>
+                                                    <p style="margin-top:5px ; font-size: 13px;">Purple</p>
+                                                </div>
+                                            </div>
+                                            <div class="range col-lg-1" style="margin-left:18px; margin-top: 20px;">
+                                                <div>
+                                                    <span class="dot" style="background-color: black;"></span>
+                                                    <p style="margin-top:5px; font-size: 13px;">Black</p>
+                                                </div>
+                                            </div>
+                                            <div class="range col-lg-1" style="margin-left:18px; margin-top: 20px;">
+                                                <div>
+                                                    <span class="dot" style="background-color: red;"></span>
+                                                    <p style="margin-top:5px; font-size: 13px;">Red</p>
+                                                </div>
+                                            </div>
+                                            <div class="range col-lg-1" style="margin-left: 12px; margin-top: 20px;">
+                                                <div>
+                                                    <span class="dot" style="background-color: rgb(255, 85, 0);""></span>
+                                                        <p style=" margin-top:5px; font-size: 13px;">Orange</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end test -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <footer class="bg-light text-center text-lg-start " style="width: 1342px;margin-left: -101px; margin-top:20px">
+                <!-- Copyright -->
+                <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);height: 80px;">
+                  © 2023 Copyright:
+                  <a class="text-dark" href="#">Kidsplaza.vn</a>
+                </div>
+                <!-- Copyright -->
+              </footer>
+            <!-- </section> -->
+            <!-- Hero Section End -->
+            <script src="script.js"></script>
+</body>
+
+</html>
