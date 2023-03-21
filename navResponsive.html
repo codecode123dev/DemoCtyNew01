@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+<!-- <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet"> -->
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"> -->
+<!-- Bootstrap Font Icon CSS -->
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"> -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+
+<!-- Css Styles -->
+<!-- <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"> -->
+<!-- <link rel="stylesheet" href="css/style.css" type="text/css"> -->
+
+<!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
+    <style>
+
+        * {
+            --grey-blue-95: #EDEFF2;
+        }
+        body {margin: 0;}
+        header {
+            border-bottom: solid 2px var(--grey-blue-95);
+        }
+
+        /* 1400px and up */
+        @media (min-width: 1400px) {
+            .page-content {
+                display: flex;
+                flex-direction: row-reverse;
+            }
+            .container {
+                width: 100%;
+                max-width: 1600px;
+                margin: 0 auto;
+            }
+            .logo{
+                width: 10%;
+            }
+            .hamburger-menu a {
+                display: block;
+                width: 32px;
+                height: 32px;
+            }
+            .bi-list{
+                width: 32px;
+                height: 32px;
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+        <header>
+            <div class="container">
+                <!-- <span class="flex-item"><a href="#"><i class="bi bi-list"></i> </a></span> -->
+                <div class="hamburger-menu"><a href="#"><i class="bi bi-list"></i></a></div>
+                <span class="logo"><img src="/DemoTemplateOne/img/Constructor.png" alt="logo"> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-dash" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M5.5 10a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5z"/>
+                        <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+                      </svg>
+                      <i class="bi bi-bag-dash"></i>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                      </svg>
+                     </span>
+            </div>
+        </header>
+        <div class="page-content">
+            <div class="container">
+                <main>
+                    <div style="border:solid 1px blue; height: 800px;">Main content</div>
+                </main>
+                <aside>
+                    <div style="border:solid 1px purple; height: 500px;">Sidebar menu</div>
+                </aside>
+            </div>
+        </div>
+        <footer>
+            <div style="border:solid 1px yellow; height: 200px;"></div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+  </body>
+</html>

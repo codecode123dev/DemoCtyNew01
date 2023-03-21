@@ -3173,7 +3173,11 @@ ol {
 @media only screen and (max-width: 767px) {
 	.hero__categories {
 		margin-bottom: 30px;
+		
 	}
+	/* .hero__categories ul{
+		width: 150px;
+	} */
 	.hero__search {
 		margin-bottom: 30px;
 	}
