@@ -5,175 +5,91 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <style>
-        /* .range-slider {
-            height: 5px;
-            position: relative;
-            background-color: #e1e9f6;
-            border-radius: 2px;
+        
+        .checkbox-all-technique {
+            display: grid;
+            grid-template-columns: auto auto;
+            width: 200px;
+            overflow: auto;
+            height: 100px;
+            border: solid 1px red;
         }
 
-        .range-selected {
-            height: 100%;
-            left: 30%;
-            right: 30%;
-            position: absolute;
-            border-radius: 5px;
-            background-color: #1b53c0;
-        }
-
-        .range-input {
-            position: relative;
-        }
-
-        .range-input input {
-            position: absolute;
-            width: 100%;
-            height: 5px;
-            top: -7px;
-            background: none;
-            pointer-events: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-        }
-
-        .range-input input::-webkit-slider-thumb {
-            height: 20px;
-            width: 20px;
-            border-radius: 50%;
-            border: 3px solid #1b53c0;
-            background-color: #fff;
-            pointer-events: auto;
-            -webkit-appearance: none;
-        }
-
-        .range-input input::-moz-range-thumb {
-            height: 15px;
-            width: 15px;
-            border-radius: 50%;
-            border: 3px solid #1b53c0;
-            background-color: #fff;
-            pointer-events: auto;
-            -moz-appearance: none;
-        }
-
-        .range-price {
-            margin: 30px 0;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .range-price label {
-            margin-right: 5px;
-        }
-
-        .range-price input {
-            width: 40px;
-            padding: 5px;
-        }
-
-        .range-price input:first-of-type {
-            margin-right: 15px;
+        /* .invisible-scrollbar::-webkit-scrollbar {
+            display: none;
         } */
 
-        .range-slider {
-            height: 5px;
-            width: 200px;
-            position: relative;
-            background-color: #e1e9f6;
-            border-radius: 2px;
+        /* Demonstrate a "mostly customized" scrollbar
+ * (won't be visible otherwise if width/height is specified) */
+        .checkbox-all-technique::-webkit-scrollbar {
+            width: 5px;
+            height: 8px;
+            background-color: #d20000;
         }
 
-        .range-selected {
-            height: 100%;
-            left: 30%;
-            right: 30%;
-            position: absolute;
-            border-radius: 5px;
-            background-color: #1b53c0;
+        /* Add a thumb */
+        .checkbox-all-technique::-webkit-scrollbar-thumb {
+            background: #b4b4b4;
         }
-
-        .range-input {
-            position: relative;
+        .checkbox-left{
+            display: grid;
+            grid-template-columns: auto;
         }
-
-        .range-input input {
-            position: absolute;
-            width: 200px;
-            height: 5px;
-            top: -7px;
-            background: none;
-            pointer-events: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-        }
-
-        .range-input input::-webkit-slider-thumb {
-            height: 20px;
-            width: 20px;
-            border-radius: 50%;
-            border: 3px solid #1b53c0;
-            background-color: #1b53c0;
-            pointer-events: auto;
-            -webkit-appearance: none;
-        }
-
-        .range-input input::-moz-range-thumb {
-            height: 15px;
-            width: 15px;
-            border-radius: 50%;
-            border: 3px solid #1b53c0;
-            background-color: #fff;
-            pointer-events: auto;
-            -moz-appearance: none;
-        }
-
-        .range-price {
-            margin: 30px 0 0 20px;
-            width: 14%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .range-price label {
-            margin-right: 5px;
-        }
-
-        .range-price input {
-            width: 74px;
-            padding: 5px;
-            border: groove 1px;
-        }
-
-        .range-price input:first-of-type {
-            margin-right: 11px;
-            margin-left: -32px;
+        .checkbox-right{
+            display: grid;
+            grid-template-columns: auto;
         }
     </style>
-    <title>Document</title>
 </head>
 
 <body>
-    <div class="range">
-        <div class="range-slider">
-            <span class="range-selected"></span>
+  
+
+    <div class="checkbox-all-technique">
+        <div class="checkbox-left">
+            <label class="checkbox-details ">Test
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+            </label>
+            <label class="checkbox-details ">Test
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+            </label>
+            <label class="checkbox-details ">Test
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+            </label>
+            <label class="checkbox-details ">Test
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+            </label>
+            <label class="checkbox-details ">Test
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+            </label>
+            <label class="checkbox-details ">Test
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+            </label>
         </div>
-        <div class="range-input">
-            <input type="range" class="min" min="0" max="1000" value="300" step="10">
-            <input type="range" class="max" min="0" max="1000" value="700" step="10">
-        </div>
-        <div class="range-price">
-            <label for="min"></label>
-            <input type="number" name="min" value="300">
-            <label for="max"></label>
-            <input type="number" name="max" value="700">
+        <div class="checkbox-right">
+            <label class="checkbox-details ">Test
+            </label>
+            <label class="checkbox-details ">Test
+            </label>
+            <label class="checkbox-details ">Test
+            </label>
+            <label class="checkbox-details ">Test
+            </label>
+            <label class="checkbox-details ">Test
+            </label>
+            <label class="checkbox-details ">Test
+            </label>
+
         </div>
     </div>
-
-    <script src="script.js"></script>
 </body>
 
 </html>
